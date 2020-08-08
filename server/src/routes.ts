@@ -10,4 +10,4 @@ routes.get('/classes', (request, response) => {
   return response.send();
 });
 
-export default routes
+export default routes;

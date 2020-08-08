@@ -23,11 +23,13 @@
         "prettier"
     ],
     "rules": {
-      "settings": {
-        "import/resolver": {
-          "typescript": {}
-        }
-      },
+      "import/extensions": [
+	      "error",
+	      "ignorePackages",
+	      {
+	        "ts": "never"
+	      }
+	    ],
       "prettier/prettier": "error"
     },
     "settings": {
