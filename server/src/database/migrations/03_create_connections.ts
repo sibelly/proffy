@@ -8,11 +8,14 @@ export async function up(knex: Knex) {
       .integer('user_id')
       .notNullable()
       .references('id')
-      .inTable('classes')
+      .inTable('users')
       .onUpdate('CASCADE')
       .onDelete('CASCADE');
 
-    table.timestamp('created_at').defaultTo('now()').notNullable();
+    table
+      .timestamp('created_at')
+      .defaultTo(knex.raw('CURRENT_TIMESTAMP'))
+      .notNullable();
   });
 }
 

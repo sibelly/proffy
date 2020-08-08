@@ -1,13 +1,16 @@
 import express from 'express';
+import ClassesController from './controlles/ClassesController';
+import ConnectionsController from './controlles/ConnectionsController';
 
 const routes = express.Router();
+const classesControllers = new ClassesController();
 
-routes.get('/classes', (request, response) => {
-  const data = request.body;
+const connectionsControllers = new ConnectionsController();
 
-  console.log(data);
+routes.get('/classes', classesControllers.index);
+routes.post('/classes', classesControllers.create);
 
-  return response.send();
-});
+routes.get('/connections', connectionsControllers.index);
+routes.post('/connections', connectionsControllers.create);
 
 export default routes;
